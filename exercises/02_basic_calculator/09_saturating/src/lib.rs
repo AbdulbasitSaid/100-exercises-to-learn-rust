@@ -13,8 +13,6 @@ pub fn to_32bit_binary_loop(num: u32) -> String {
 
     // Loop backwards from bit index 31 down to 0
     for i in (0..32).rev() {
-        let examplt_bit = num >> i;
-
         let bit = (num >> i) & 1;
         binary_string.push(if bit == 1 { '1' } else { '0' });
     }
