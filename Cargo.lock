@@ -100,6 +100,9 @@ version = "0.1.0"
 [[package]]
 name = "assoc_vs_generic"
 version = "0.1.0"
+dependencies = [
+ "num-traits",
+]
 
 [[package]]
 name = "async_fn"
@@ -1625,6 +1628,9 @@ version = "0.1.0"
 [[package]]
 name = "outro_03"
 version = "0.1.0"
+dependencies = [
+ "num-traits",
+]
 
 [[package]]
 name = "outro_04"
