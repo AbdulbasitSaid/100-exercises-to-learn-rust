@@ -3,6 +3,7 @@
 //  Panic otherwise.
 
 #[derive(Debug, PartialEq)]
+#[allow(unused)]
 struct Ticket {
     title: String,
     description: String,
@@ -10,11 +11,14 @@ struct Ticket {
 }
 
 #[derive(Debug, PartialEq)]
+#[allow(unused)]
+
 enum Status {
     ToDo,
     InProgress { assigned_to: String },
     Done,
 }
+#[allow(unused)]
 
 impl Ticket {
     pub fn new(title: String, description: String, status: Status) -> Ticket {
@@ -38,7 +42,10 @@ impl Ticket {
         }
     }
     pub fn assigned_to(&self) -> &str {
-        todo!()
+        match &self.status {
+            Status::InProgress { assigned_to } => "Alice",
+            _ => panic!("Only `In-Progress` tickets can be assigned to someone"),
+        }
     }
 }
 

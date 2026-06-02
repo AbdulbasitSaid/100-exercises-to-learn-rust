@@ -1,0 +1,38 @@
+delayed bug: missing item
+   0: std::backtrace::Backtrace::create
+   1: <rustc_errors::DiagCtxtInner>::emit_diagnostic
+   2: <rustc_errors::DiagCtxtHandle>::emit_diagnostic
+   3: <rustc_span::ErrorGuaranteed as rustc_errors::diagnostic::EmissionGuarantee>::emit_producing_guarantee
+   4: <rustc_errors::DiagCtxtHandle>::span_delayed_bug::<rustc_span::span_encoding::Span, alloc::string::String>
+   5: <rustc_type_ir::predicate::NormalizesTo<rustc_middle::ty::context::TyCtxt> as rustc_next_trait_solver::solve::assembly::GoalKind<rustc_trait_selection::solve::delegate::SolverDelegate, rustc_middle::ty::context::TyCtxt>>::consider_impl_candidate
+   6: <rustc_next_trait_solver::solve::eval_ctxt::EvalCtxt<rustc_trait_selection::solve::delegate::SolverDelegate, rustc_middle::ty::context::TyCtxt>>::assemble_and_evaluate_candidates::<rustc_type_ir::predicate::NormalizesTo<rustc_middle::ty::context::TyCtxt>>
+   7: <rustc_next_trait_solver::solve::eval_ctxt::EvalCtxt<rustc_trait_selection::solve::delegate::SolverDelegate, rustc_middle::ty::context::TyCtxt>>::enter_canonical::<core::result::Result<rustc_type_ir::canonical::Canonical<rustc_middle::ty::context::TyCtxt, rustc_type_ir::solve::Response<rustc_middle::ty::context::TyCtxt>>, rustc_type_ir::solve::NoSolution>, <rustc_next_trait_solver::solve::search_graph::SearchGraphDelegate<rustc_trait_selection::solve::delegate::SolverDelegate> as rustc_type_ir::search_graph::Delegate>::compute_goal::{closure#0}::{closure#0}>
+   8: <rustc_type_ir::search_graph::SearchGraph<rustc_next_trait_solver::solve::search_graph::SearchGraphDelegate<rustc_trait_selection::solve::delegate::SolverDelegate>, rustc_middle::ty::context::TyCtxt>>::evaluate_goal::{closure#0}::{closure#2}
+   9: <rustc_next_trait_solver::solve::eval_ctxt::EvalCtxt<rustc_trait_selection::solve::delegate::SolverDelegate, rustc_middle::ty::context::TyCtxt>>::evaluate_goal_raw
+  10: <rustc_next_trait_solver::solve::eval_ctxt::EvalCtxt<rustc_trait_selection::solve::delegate::SolverDelegate, rustc_middle::ty::context::TyCtxt>>::evaluate_added_goals_step
+  11: <rustc_next_trait_solver::solve::eval_ctxt::EvalCtxt<rustc_trait_selection::solve::delegate::SolverDelegate, rustc_middle::ty::context::TyCtxt>>::enter_canonical::<core::result::Result<rustc_type_ir::canonical::Canonical<rustc_middle::ty::context::TyCtxt, rustc_type_ir::solve::Response<rustc_middle::ty::context::TyCtxt>>, rustc_type_ir::solve::NoSolution>, <rustc_next_trait_solver::solve::search_graph::SearchGraphDelegate<rustc_trait_selection::solve::delegate::SolverDelegate> as rustc_type_ir::search_graph::Delegate>::compute_goal::{closure#0}::{closure#0}>
+  12: <rustc_type_ir::search_graph::SearchGraph<rustc_next_trait_solver::solve::search_graph::SearchGraphDelegate<rustc_trait_selection::solve::delegate::SolverDelegate>, rustc_middle::ty::context::TyCtxt>>::evaluate_goal::{closure#0}::{closure#2}
+  13: <rustc_next_trait_solver::solve::eval_ctxt::EvalCtxt<rustc_trait_selection::solve::delegate::SolverDelegate, rustc_middle::ty::context::TyCtxt>>::evaluate_goal_raw
+  14: <rustc_next_trait_solver::solve::eval_ctxt::EvalCtxt<rustc_trait_selection::solve::delegate::SolverDelegate, rustc_middle::ty::context::TyCtxt>>::evaluate_goal
+  15: <rustc_trait_selection::solve::delegate::SolverDelegate as rustc_next_trait_solver::solve::eval_ctxt::SolverDelegateEvalExt>::evaluate_root_goal
+  16: <rustc_trait_selection::solve::fulfill::FulfillmentCtxt<rustc_infer::traits::engine::ScrubbedTraitError> as rustc_infer::traits::engine::TraitEngine<rustc_infer::traits::engine::ScrubbedTraitError>>::select_where_possible
+  17: <rustc_hir_typeck::fn_ctxt::FnCtxt>::check_expr_struct_fields
+  18: <rustc_hir_typeck::fn_ctxt::FnCtxt>::check_expr_kind
+  19: <rustc_hir_typeck::fn_ctxt::FnCtxt>::check_expr_with_expectation_and_args
+  20: <rustc_hir_typeck::fn_ctxt::FnCtxt>::check_expr_block
+  21: <rustc_hir_typeck::fn_ctxt::FnCtxt>::check_expr_with_expectation_and_args
+  22: <rustc_hir_typeck::fn_ctxt::FnCtxt>::check_return_or_body_tail
+  23: rustc_hir_typeck::check::check_fn
+  24: rustc_hir_typeck::typeck_with_inspect::{closure#0}
+  25: rustc_hir_typeck::inspect_typeck
+  26: argus_lib::analysis::obligations
+  27: <argus_cli::plugin::ArgusCallbacks<A,T,F> as rustc_driver_impl::Callbacks>::after_expansion::{{closure}}
+  28: alloc::vec::in_place_collect::<impl alloc::vec::spec_from_iter::SpecFromIter<T,I> for alloc::vec::Vec<T>>::from_iter
+  29: <argus_cli::plugin::ArgusCallbacks<A,T,F> as rustc_driver_impl::Callbacks>::after_expansion
+  30: rustc_interface::passes::create_and_enter_global_ctxt::<core::option::Option<rustc_interface::queries::Linker>, rustc_driver_impl::run_compiler::{closure#0}::{closure#2}>
+  31: rustc_interface::interface::run_compiler::<(), rustc_driver_impl::run_compiler::{closure#0}>::{closure#1}
+  32: std::sys::backtrace::__rust_begin_short_backtrace::<rustc_interface::util::run_in_thread_with_globals<rustc_interface::util::run_in_thread_pool_with_globals<rustc_interface::interface::run_compiler<(), rustc_driver_impl::run_compiler::{closure#0}>::{closure#1}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}, ()>
+  33: <<std::thread::Builder>::spawn_unchecked_<rustc_interface::util::run_in_thread_with_globals<rustc_interface::util::run_in_thread_pool_with_globals<rustc_interface::interface::run_compiler<(), rustc_driver_impl::run_compiler::{closure#0}>::{closure#1}, ()>::{closure#0}, ()>::{closure#0}::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}
+  34: std::sys::pal::unix::thread::Thread::new::thread_start
+  35: __pthread_cond_wait
+

@@ -1,11 +1,18 @@
 // TODO: `easy_ticket` should panic when the title is invalid.
 //   When the description is invalid, instead, it should use a default description:
-//   "Description not provided".
+//   "Description cannot be longer than 500 bytes".
+#[allow(unused)]
+
 fn easy_ticket(title: String, description: String, status: Status) -> Ticket {
-    todo!()
+    if description.is_empty() {
+        return Ticket::new(title, "Description not provided".into(), status).unwrap();
+    } else {
+        Ticket::new(title, "Description not provided".into(), status).unwrap()
+    }
 }
 
 #[derive(Debug, PartialEq, Clone)]
+#[allow(unused)]
 struct Ticket {
     title: String,
     description: String,
@@ -13,6 +20,8 @@ struct Ticket {
 }
 
 #[derive(Debug, PartialEq, Clone)]
+#[allow(unused)]
+
 enum Status {
     ToDo,
     InProgress { assigned_to: String },

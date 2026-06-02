@@ -4,18 +4,26 @@
 #[derive(Debug, PartialEq)]
 // `derive`s are recursive: it can only derive `PartialEq` if all fields also implement `PartialEq`.
 // Same holds for `Debug`. Do what you must with `Status` to make this work.
+#[allow(unused)]
 struct Ticket {
     title: String,
     description: String,
-    status: String,
+    status: Status,
 }
 
+#[derive(Debug, PartialEq, Clone, Copy)]
+#[allow(unused)]
+
 enum Status {
-    // TODO: add the missing variants
+    ToDo,
+    InProgress,
+    Done,
 }
 
 impl Ticket {
-    pub fn new(title: String, description: String, status: String) -> Ticket {
+    #[allow(unused)]
+
+    pub fn new(title: String, description: String, status: Status) -> Ticket {
         if title.is_empty() {
             panic!("Title cannot be empty");
         }
@@ -28,7 +36,7 @@ impl Ticket {
         if description.len() > 500 {
             panic!("Description cannot be longer than 500 bytes");
         }
-        if status != "To-Do" && status != "In Progress" && status != "Done" {
+        if status != Status::ToDo && status != Status::InProgress && status != Status::Done {
             panic!("Only `To-Do`, `In Progress`, and `Done` statuses are allowed");
         }
 
@@ -38,16 +46,19 @@ impl Ticket {
             status,
         }
     }
+    #[allow(unused)]
 
     pub fn title(&self) -> &String {
         &self.title
     }
+    #[allow(unused)]
 
     pub fn description(&self) -> &String {
         &self.description
     }
+    #[allow(unused)]
 
-    pub fn status(&self) -> &String {
+    pub fn status(&self) -> &Status {
         &self.status
     }
 }
