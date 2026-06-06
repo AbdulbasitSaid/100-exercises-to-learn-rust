@@ -31,6 +31,14 @@ impl TicketStore {
     pub fn add_ticket(&mut self, ticket: Ticket) {
         self.tickets.push(ticket);
     }
+    pub fn in_progress(&self) -> impl Iterator<Item = &Ticket> {
+        let a = self
+            .tickets
+            .iter()
+            .filter(|&ticket_item| ticket_item.status == Status::InProgress);
+
+        a
+    }
 }
 
 #[cfg(test)]
