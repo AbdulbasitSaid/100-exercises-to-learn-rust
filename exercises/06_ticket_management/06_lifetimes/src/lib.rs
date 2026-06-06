@@ -1,3 +1,5 @@
+use std::slice::Iter;
+
 use ticket_fields::{TicketDescription, TicketTitle};
 
 // TODO: Implement the `IntoIterator` trait for `&TicketStore` so that the test compiles and passes.
@@ -31,11 +33,19 @@ impl TicketStore {
         self.tickets.push(ticket);
     }
 
-    pub fn iter(&self) -> std::slice::Iter<Ticket> {
+    pub fn iter(&self) -> std::slice::Iter<'_, Ticket> {
         self.tickets.iter()
     }
 }
 
+impl<'a> IntoIterator for &'a TicketStore {
+    type Item = &'a Ticket;
+
+    type IntoIter = Iter<'a, Ticket>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.tickets.iter()
+    }
+}
 #[cfg(test)]
 mod tests {
     use super::*;
